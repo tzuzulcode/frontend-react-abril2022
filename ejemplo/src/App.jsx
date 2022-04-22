@@ -1,3 +1,4 @@
+import Listas from "./components/Listas.jsx";
 import Productos from "./components/Productos.jsx";
 
 function App() {
@@ -5,6 +6,7 @@ function App() {
     <div className="App">
       {/* <Productos></Productos> */}
       <Productos/>
+      <Listas/>
     </div>
   );
 }
