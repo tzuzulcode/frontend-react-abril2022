@@ -1,13 +1,17 @@
 import Listas from "./components/Listas.jsx";
 import Productos from "./components/Productos.jsx";
+import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
 
 function App() {
   return (
-    <div className="App">
+    <Router>
+      <Routes>
+        <Route path="/" element={ <Listas/>} />
+        <Route path="/productos" element={ <Productos/>} />
+      </Routes>
+
       {/* <Productos></Productos> */}
-      <Productos/>
-      <Listas/>
-    </div>
+    </Router>
   );
 }
 

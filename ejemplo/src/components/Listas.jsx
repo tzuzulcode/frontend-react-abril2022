@@ -1,3 +1,5 @@
+
+
 const Listas =()=>{
 
 
@@ -19,7 +21,7 @@ const Listas =()=>{
 
     // Devolviendo un Fragment
     return <>
-        {alumnos.map((alumno,index)=><div key={index}>
+        {alumnos.map((alumno,index)=><div className="alumno" key={index}>
             <p>{alumno.name}</p>
         </div>)}
     </>
