@@ -1,6 +1,7 @@
 import Listas from "./components/Listas.jsx";
 import Productos from "./components/Productos.jsx";
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
+import Calificaciones from "./components/Calificaciones.jsx";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Routes>
         <Route path="/" element={ <Listas/>} />
         <Route path="/productos" element={ <Productos/>} />
+        <Route path="/calificaciones" element={ <Calificaciones/>} />
       </Routes>
 
       {/* <Productos></Productos> */}

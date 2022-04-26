@@ -1,4 +1,4 @@
-
+import {Link} from 'react-router-dom'
 
 const Listas =()=>{
 
@@ -24,6 +24,8 @@ const Listas =()=>{
         {alumnos.map((alumno,index)=><div className="alumno" key={index}>
             <p>{alumno.name}</p>
         </div>)}
+
+        <Link to="/calificaciones">Calificaciones</Link>
     </>
 }
 
