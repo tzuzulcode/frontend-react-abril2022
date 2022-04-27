@@ -25,8 +25,13 @@ function Calificaciones() {
             </thead>
             <tbody>
                 {alumnos.map(alumno=>(
-                    <DetallesDelAlumno alumno={alumno}/>
+                    <DetallesDelAlumno alumno={alumno} numero={5} texto={"Hola mundo"} jsx={<div><p>Hola</p><p>Hola2</p></div>} aula="a1" />
                 ))}
+                {/* {[<DetallesDelAlumno alumno={alumno}/>,
+                    <DetallesDelAlumno alumno={alumno}/>,
+                    <DetallesDelAlumno alumno={alumno}/>,
+                    <DetallesDelAlumno alumno={alumno}/>,
+                    <DetallesDelAlumno alumno={alumno}/>,]} */}
             </tbody>
         </table>
     </>
