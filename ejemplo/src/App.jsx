@@ -2,12 +2,14 @@ import Listas from "./components/Listas.jsx";
 import Productos from "./components/Productos.jsx";
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
 import Calificaciones from "./components/Calificaciones.jsx";
+import Contador from "./components/Contador.jsx";
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={ <Listas/>} />
+        <Route path="/state" element={ <Contador/>} />
         <Route path="/productos" element={ <Productos/>} />
         <Route path="/calificaciones" element={ <Calificaciones/>} />
       </Routes>
