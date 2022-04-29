@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1 id="welcome"></h1>
+        <p id="content">Bienvenido</p>
+        <button id="button">Presionar</button>
+    </div>
+    <script>
+        const content = document.getElementById("content")
+        const welcome = document.getElementById("welcome")
+        const button = document.getElementById("button")
+
+        let number = 0
+
+        button.onclick = ()=>{
+            number++
+            //Actualizacion del contenido
+            content.innerText = number //Especificar que elementos van a renderizar nuevamente
+            welcome.innerText = number //Especificar que elementos van a renderizar nuevamente
+        }
+        
+    </script>
+</body>
+</html>
