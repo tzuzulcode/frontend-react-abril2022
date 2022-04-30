@@ -27,6 +27,7 @@ const Listas =()=>{
 
         <Link to="/calificaciones">Calificaciones</Link>
         <Link to="/state">Contador</Link>
+        <Link to="/estado">Estado</Link>
     </>
 }
 
