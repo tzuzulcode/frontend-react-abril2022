@@ -11,20 +11,20 @@ export default function Estado() {
     }
 
     const sendMessage = ()=>{
-        messages.push(content)
-        setMessages([...messages])
+        messages.push(content) 
+        setMessages([...messages]) // Por qué: [...messages]
         setContent("")
-        // Explicar esta función
     }
 
   return (
     <>
         <div>
-            {messages.map(message=><p>{message}</p>)}
+            {messages.map(message=><p className='message'>{message}</p>)}
         </div>
-        <p>{content}</p>
+        <p className='writing'>{content}</p>
         <input type="text" value={content} onChange={changeInput}/>
         <button onClick={sendMessage}>Enviar</button>
+        {/* Reto: Implementar menu de hamburguesa utilizando el estado */}
     </>
   )
 }
