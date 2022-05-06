@@ -5,6 +5,7 @@ import Calificaciones from "./components/Calificaciones.jsx";
 import Contador from "./components/Contador.jsx";
 import Estado from "./components/Estado.jsx";
 import Effects from "./components/Effects";
+import Referencias from "./components/Referencias";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/state" element={ <Contador/>} />
         <Route path="/estado" element={ <Estado/>} />
         <Route path="/effects" element={ <Effects/>} />
+        <Route path="/referencias" element={ <Referencias/>} />
         <Route path="/productos" element={ <Productos/>} />
         <Route path="/calificaciones" element={ <Calificaciones/>} />
       </Routes>
