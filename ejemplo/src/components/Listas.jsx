@@ -29,6 +29,7 @@ const Listas =()=>{
         <Link to="/state">Contador</Link>
         <Link to="/estado">Estado</Link>
         <Link to="/effects">Effects</Link>
+        <Link to="/context">Context</Link>
     </>
 }
 

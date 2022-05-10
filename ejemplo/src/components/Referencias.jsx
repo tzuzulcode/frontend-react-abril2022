@@ -7,10 +7,10 @@ export default function Referencias() {
         console.log(input.current.value)
     }
 
-  return (
-    <div>
-        <input type="text" ref={input}></input>
-        <button onClick={sendMessage}>Enviar</button>
-    </div>
-  )
+    return (
+      <div>
+          <input type="text" ref={input}></input>
+          <button onClick={sendMessage}>Enviar</button>
+      </div>
+    )
 }
