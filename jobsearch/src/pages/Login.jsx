@@ -1,6 +1,9 @@
-import React, { useRef } from 'react'
+import React, { useContext, useRef } from 'react'
+import { authContext } from '../Context/AuthContext'
 
 export default function Login() {
+
+    const context = useContext(authContext)
 
     const email = useRef()
     const password = useRef()
@@ -9,12 +12,22 @@ export default function Login() {
         event.preventDefault()
         fetch("http://localhost:4000/api/auth/login",{
             method:"POST",
-            body:{
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({
                 email: email.current.value,
                 password:password.current.value
-            }
+            })
         }).then(res=>res.json())
-        .then(data=>console.log(data))
+        .then(data=>{
+            localStorage.setItem("token",data.token)
+            context.setAuth({
+                id:data.user.id,
+                name:data.user.name,
+                logged:true
+            })
+        })
         .catch(error=>console.log(error))
     }
   return (
