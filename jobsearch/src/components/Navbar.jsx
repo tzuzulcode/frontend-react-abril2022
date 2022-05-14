@@ -6,6 +6,7 @@ export default function Navbar() {
     const context = useContext(authContext)
   return (
     <nav>
+        {console.log("Render...")}
         <ul>
             <li><Link to="/">Home</Link></li>
             {!context.auth.logged&&<li><Link to="/login">Login</Link></li>}

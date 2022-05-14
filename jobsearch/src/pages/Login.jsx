@@ -27,6 +27,18 @@ export default function Login() {
                 name:data.user.name,
                 logged:true
             })
+
+            fetch("http://localhost:4000/api/users",{
+                headers:{
+                    "Authorization":"Bearer "+localStorage.getItem("token")
+                }
+            })
+            .then((response)=>{
+                return response.json()
+            })
+            .then(data=>{
+                console.log(data)
+            })
         })
         .catch(error=>console.log(error))
     }

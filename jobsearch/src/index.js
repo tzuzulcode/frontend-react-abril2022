@@ -6,15 +6,19 @@ import {BrowserRouter as Router} from 'react-router-dom'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AuthProvider from './Context/AuthContext';
+import Navbar from './components/Navbar';
+import Test from './components/Test';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AuthProvider>
-      <Router>
-        <App />
-      </Router>
-    </AuthProvider>
+      <AuthProvider>
+        <Test/>
+        <Router>
+          <App />
+        </Router>
+      </AuthProvider>
+    
   </React.StrictMode>
 );
 
