@@ -10,7 +10,7 @@ export default function Login() {
 
     const login = (event) =>{
         event.preventDefault()
-        fetch("http://localhost:4000/api/auth/login",{
+        fetch("https://backendnodejstzuzulcode.uw.r.appspot.com/api/auth/login",{
             method:"POST",
             headers:{
                 "Content-Type":"application/json"
@@ -28,9 +28,9 @@ export default function Login() {
                 logged:true
             })
 
-            fetch("http://localhost:4000/api/users",{
+            fetch("https://backendnodejstzuzulcode.uw.r.appspot.com/api/users",{
                 headers:{
-                    "Authorization":"Bearer "+localStorage.getItem("token")
+                    "Authorization":"Bearer " +localStorage.getItem("token")
                 }
             })
             .then((response)=>{
