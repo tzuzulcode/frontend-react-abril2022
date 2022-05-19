@@ -1,46 +1,38 @@
 import React, { useContext, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { post } from '../api'
 import { authContext } from '../Context/AuthContext'
 
 export default function Login() {
 
     const context = useContext(authContext)
 
+    const navigate = useNavigate()
+
     const email = useRef()
     const password = useRef()
 
+    // Login de usuarios
     const login = (event) =>{
         event.preventDefault()
-        fetch("https://backendnodejstzuzulcode.uw.r.appspot.com/api/auth/login",{
-            method:"POST",
-            headers:{
-                "Content-Type":"application/json"
-            },
-            body:JSON.stringify({
-                email: email.current.value,
-                password:password.current.value
-            })
-        }).then(res=>res.json())
+
+        post("/api/auth/login",{ // Peticion de login
+            email: email.current.value,
+            password:password.current.value
+        })
         .then(data=>{
-            localStorage.setItem("token",data.token)
+            const {token,user} = data.data
+            localStorage.setItem("token",token) // Guardamos el token que recibimos
             context.setAuth({
-                id:data.user.id,
-                name:data.user.name,
+                id:user.id,
+                name:user.name,
                 logged:true
             })
-
-            fetch("https://backendnodejstzuzulcode.uw.r.appspot.com/api/users",{
-                headers:{
-                    "Authorization":"Bearer " +localStorage.getItem("token")
-                }
-            })
-            .then((response)=>{
-                return response.json()
-            })
-            .then(data=>{
-                console.log(data)
+            navigate("/",{
+                replace:true
             })
         })
-        .catch(error=>console.log(error))
+
     }
   return (
     <div>

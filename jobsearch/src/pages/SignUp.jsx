@@ -1,4 +1,5 @@
 import React,{useContext, useRef} from 'react'
+import { post } from '../api'
 import { authContext } from '../Context/AuthContext'
 
 export default function SignUp() {
@@ -10,19 +11,12 @@ export default function SignUp() {
 
   const signup = (event) =>{
       event.preventDefault()
-      fetch("https://backendnodejstzuzulcode.uw.r.appspot.com/api/auth/signup",{
-          method:"POST",
-          headers:{
-            "Content-Type":"application/json"
-          },
-          body:JSON.stringify({
-            name:name.current.value,
-            email: email.current.value,
-            password:password.current.value
-          })
+      post("/api/auth/signup",{
+        name:name.current.value,
+        email: email.current.value,
+        password:password.current.value
       })
-      .then(res=>res.json())
-      .then(data=>{
+      .then(({data})=>{
         if(data.error){
           console.log(data)
         }else{
@@ -33,9 +27,7 @@ export default function SignUp() {
             logged:true
           })
         }
-        
       })
-      .catch(error=>console.log(error))
   }
 
   const recoverSession = ()=>{
