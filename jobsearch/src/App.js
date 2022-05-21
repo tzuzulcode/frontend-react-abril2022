@@ -4,8 +4,11 @@ import { postWithToken } from './api';
 import Navbar from './components/Navbar';
 import Template from './components/Template';
 import { authContext } from './Context/AuthContext';
+import Details from './pages/Details';
 import Home from './pages/Home';
 import Login from './pages/Login';
+import NotFound from './pages/NotFound';
+import Props from './pages/Props';
 import SignUp from './pages/SignUp';
 
 function App() {
@@ -34,6 +37,9 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<SignUp/>}/>
+        <Route path='/details/:id' element={<Details/>}/>
+        <Route path='/props' element={<Props/>}/>
+        <Route path='*' element={<NotFound/>}/>
       </Routes>
     </>
   );
