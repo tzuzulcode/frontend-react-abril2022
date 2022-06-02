@@ -1,12 +1,18 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { post } from '../api'
 import Errors from '../components/Errors'
 import {FcGoogle} from 'react-icons/fc'
+import { authContext } from '../context/Auth'
+import { useNavigate } from 'react-router-dom'
 
 export default function Login() {
 
+    const {setUser} = useContext(authContext)
+
+    const navigate = useNavigate()
+
     const [errors,setErrors] = useState({
-        isErrors:true,
+        isErrors:false,
         errors:[]
     })
 
@@ -17,8 +23,12 @@ export default function Login() {
         post("/api/auth/login",{
             email:email.value,
             password:password.value
-        }).then(response=>{
-            console.log(response)
+        }).then(({user})=>{
+            setUser({
+                logged:true,
+                user
+            })
+            navigate("/")
         })
         .catch(error=>{
             setErrors({
