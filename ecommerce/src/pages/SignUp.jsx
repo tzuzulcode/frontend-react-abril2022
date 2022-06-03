@@ -31,9 +31,10 @@ export default function SignUp() {
             navigate("/")
         })
         .catch(error=>{
+            console.log(error)
             setErrors({
                 isErrors:true,
-                errors:error.errors.map(e=>Object.values(e)[0])
+                errors:error.errors.map(e=>e.message)
             })
         })
 

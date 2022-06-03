@@ -1,9 +1,23 @@
 import React, { useContext } from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
+import { get } from '../api'
 import { authContext } from '../context/Auth'
 
 export default function Navbar() {
-    const {user,logged} = useContext(authContext)
+    const {user,logged,setUser} = useContext(authContext)
+    const navigate = useNavigate()
+
+    const logout = () =>{
+        get("/api/auth/logout")
+        .then(result=>{
+            console.log(result)
+            setUser({
+                logged:false,
+                user:{}
+            })
+            navigate("/")
+        })
+    }
     return (
         <nav>
             <ul>
@@ -15,6 +29,7 @@ export default function Navbar() {
                     </>:
                     <>
                         <li>{user.name}</li>
+                        <li><button onClick={logout}>Log out</button></li>
                     </>
                 }
                 
