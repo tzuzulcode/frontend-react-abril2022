@@ -11,13 +11,11 @@ export default function Navbar() {
         get("/api/auth/logout")
         .then(result=>{
             console.log(result)
-            setUser({
-                logged:false,
-                user:{}
-            })
+            setUser({type:'LOGOUT'})
             navigate("/")
         })
     }
+    
     return (
         <nav>
             <ul>

@@ -25,10 +25,7 @@ export default function SignUp() {
             password:password.value,
             name:name.value
         }).then(({user})=>{
-            setUser({
-                logged:true,
-                user
-            })
+            setUser({type:'SIGNUP',payload:user})
             navigate("/")
         })
         .catch(error=>{
