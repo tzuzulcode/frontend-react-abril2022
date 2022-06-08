@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sumar(){
+            return (n1,n2)=>n1+n2
+        }
+
+        const sum1 = sumar()
+        const sum2 = sumar()
+
+        sum1(1,2)
+        sum2(1,2)
+
+        console.log(sum1===sum2)
+        console.log(sum1===sum1)
+
+    </script>
+</body>
+</html>
