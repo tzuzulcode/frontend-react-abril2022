@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState,useMemo } from 'react'
 import Characters from '../components/Characters'
 import useInput from '../hooks/useInput'
 
@@ -17,15 +17,28 @@ export default function Callback() {
       })
       .catch(console.log)
     },[])
-    const handleClick = useCallback((event)=>{
-        console.log("Click", event.currentTarget)
-    },[searchKeyword.value])
+
+
+    const [number,setNumber] = useState(0)
+    const items = useMemo(
+        ()=>{
+            console.log("Filtering...")
+            return characters.filter(character=>character.name.includes(searchKeyword.value))
+        },
+        [searchKeyword.value]
+    )
+
+    // const increment = useCallback(()=>{
+    //   setNumber(number+1)
+    // },[number])
 
   return (
     <div>
       <h1>useCallback</h1>
       <input {...searchKeyword}/>
-      <Characters searchKeyword={searchKeyword.value} onClick={handleClick} characters={characters}/>
+      <button onClick={()=>{setNumber(number+1)}}>Increment</button>
+      <p>{number}</p>
+      <Characters characters={items}/>
       
     </div>
   )

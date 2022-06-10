@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo, useState } from 'react'
 
 // function propsAreEqual(prevCharacters,nextCharacters){
 //     console.log(prevCharacters.characters)
@@ -9,17 +9,17 @@ import React from 'react'
 // }
 
 // high-order components (HOC)
-export default React.memo(function Characters({searchKeyword,characters,onClick}) {
-    const items = characters.filter(character=>character.name.includes(searchKeyword))
+export default React.memo(function Characters({characters}) {
+    
     return (
-      <>
-          {items.map(character=>(
-              <article key={character.id} onClick={onClick}>
-                  {console.log("Render")}
-                  <p>{character.name}</p>
-                  <img src={character.image} alt={character.name} />
-              </article>
-          ))}
+        <>
+            {characters.map(character=>(
+                <article key={character.id}>
+                    {console.log("Render")}
+                    <p>{character.name}</p>
+                    <img src={character.image} alt={character.name} />
+                </article>
+            ))}
       </>
     )
 }/*,propsAreEqual*/)
