@@ -9,12 +9,15 @@ import React, { useMemo, useState } from 'react'
 // }
 
 // high-order components (HOC)
-export default React.memo(function Characters({characters}) {
+export default React.memo(function Characters({characters,openModal,selectCharacter}) {
     
     return (
         <>
             {characters.map(character=>(
-                <article key={character.id}>
+                <article key={character.id} onClick={()=>{
+                    selectCharacter(character)
+                    openModal()
+                }}>
                     {console.log("Render")}
                     <p>{character.name}</p>
                     <img src={character.image} alt={character.name} />
