@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import { authContext } from './context/Auth';
 import Callback from './pages/Callback';
 import Home from './pages/Home';
+import Hooks from './pages/Hooks';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 
@@ -28,6 +29,7 @@ function App() {
           <Navbar/>
           <Routes>
             <Route path='/' element={<Home/>}/>
+            <Route path='/hooks' element={<Hooks/>}/>
             <Route path='/callback' element={<Callback/>}/>
             <Route path='/login' element={<Login/>}/>
             <Route path='/signup' element={<SignUp/>}/>

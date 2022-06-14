@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState,useMemo } from 'react'
+import React, { useCallback, useEffect, useState,useMemo,useDeferredValue } from 'react'
 import Characters from '../components/Characters'
 import useInput from '../hooks/useInput'
 
