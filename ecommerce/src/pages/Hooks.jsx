@@ -26,10 +26,11 @@ const Filter = ({keyword})=>{
 }
 
 export default function Hooks() {
-    const [data,error,loading] = useFetch("https://rickandmortyapi.com/api/character")
+    const [data,error,loading] = useFetch("https://rickandmortyapi.com/api/characters")
 
     const [input,setInput] = useState("") //high-priority updates
     const [active,setActive] = useState(false)
+    const [] = useTransition()
     const deferredValue = useDeferredValue(input,{
         timeoutMs:5000
     })
@@ -41,18 +42,20 @@ export default function Hooks() {
             module.sayBye()
         }) //Dynamic import
     }
+
+    if(error){
+        console.log(error)
+        throw new Error("Error!!")
+    }
+
   return (
     <div>
         <button onClick={importModule}>Importar</button>
-        {console.log(data)}
         <input onChange={({target})=>{setInput(target.value)}} value={input}/>
         <Filter keyword={deferredValue}/>
         <button onClick={()=>{setActive(!active)}}>Activate</button>
         <section>
-            <Suspense fallback={<p>Loading</p>}>
-                {active&&<LazyCalendar />}
-            </Suspense>
-            <Suspense fallback={<p>Loading</p>}>
+            <Suspense fallback={<p className='bg-yellow-300'>Loading</p>}>
                 {active&&<LazyCalendar />}
             </Suspense>
             {/* {active?<LazyCalendar/>:<p>Loading</p>} */}

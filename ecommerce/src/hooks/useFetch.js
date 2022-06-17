@@ -15,8 +15,11 @@ const useFetch = (url)=>{
             loading:true
         })
         fetch(url)
-        .then(response=>response.json())
+        .then(response=>response.json()) //No lanza excepciones en 400
         .then(data=>{
+            if(data.error){
+                throw "Error"
+            }
             setResult({
                 loading:false,
                 error:false,
