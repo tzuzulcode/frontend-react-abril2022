@@ -5,6 +5,7 @@ import ErrorBoundary from './components/ErrorBoundary';
 import Navbar from './components/Navbar';
 import { authContext } from './context/Auth';
 import Loading from './pages/Loading';
+import Transition from './pages/Transition';
 // import Callback from './pages/Callback';
 // import Home from './pages/Home';
 // import Hooks from './pages/Hooks';
@@ -40,6 +41,7 @@ function App() {
                 <Route path='/' element={<Home/>}/>
                 <Route path='/hooks' element={<Hooks/>}/>
                 <Route path='/callback' element={<Callback/>}/>
+                <Route path='/transition' element={<Transition/>}/>
                 <Route path='/login' element={<Login/>}/>
                 <Route path='/signup' element={<SignUp/>}/>
               </Routes>

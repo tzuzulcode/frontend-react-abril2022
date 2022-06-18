@@ -34,7 +34,7 @@ const useFetch = (url)=>{
                 data:[]
             })
         })
-    },[])
+    },[url])
 
 
     return [result.data,result.error,result.loading]
