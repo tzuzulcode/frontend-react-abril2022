@@ -7,7 +7,9 @@ export default function Transition() {
     const [characters,setCharacters]= useState([])
     const [idCharacter,setIdCharacter]= useState()
 
-    const [transition,startTransition] = useTransition()
+    // isPending: Indica que la actualización marcada como de baja prioridad aun esta pendiente
+    // startTransition: contiene actualizaciones del estado y las marca como de baja prioridad
+    const [isPending,startTransition] = useTransition()
 
     
 
@@ -21,9 +23,10 @@ export default function Transition() {
     },[])
 
     const selectCharacter = (id)=>{
-        startTransition(()=>{
-            setIdCharacter(id)
-        })
+        // startTransition(()=>{
+        //     setIdCharacter(id)
+        // })
+        setIdCharacter(id)
     }
     
 
@@ -38,9 +41,11 @@ export default function Transition() {
                 ))}
             </ul>
         </div>
-        <Suspense fallback={<p className='bg-yellow-400'>Loading...</p>}>
+        {/* <Suspense fallback={<p className='bg-yellow-400'>Loading...</p>}>
             <Character idCharacter={idCharacter}/>
-        </Suspense>
+        </Suspense> */}
+        {/* {isPending&&<p className='bg-yellow-400'>Loading character...</p>} */}
+        <Character idCharacter={idCharacter}/>
         
     </section>
   )
