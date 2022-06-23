@@ -24,10 +24,7 @@ function App() {
     useEffect(()=>{
       get("/api/auth/validate")
       .then(result=>{
-        setUser({
-          logged:true,
-          user:result.user
-        })
+        setUser({type:'LOGIN',payload:result.user})
       })
       .catch(error=>console.log(error))
     },[setUser])

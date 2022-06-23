@@ -2,7 +2,8 @@ import axios from "axios"
 
 
 const instance = axios.create({
-    baseURL:"https://backendnodejstzuzulcode.uw.r.appspot.com"
+    // baseURL:"https://backendnodejstzuzulcode.uw.r.appspot.com"
+    baseURL:"http://localhost:4000"
 })
 
 async function get(url){

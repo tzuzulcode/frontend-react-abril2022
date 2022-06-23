@@ -2,9 +2,11 @@ import React, { useContext } from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import { get } from '../api'
 import { authContext } from '../context/Auth'
+import { cartContext } from '../context/Cart'
 
 export default function Navbar() {
     const {user,logged,setUser} = useContext(authContext)
+    const {items} = useContext(cartContext)
     const navigate = useNavigate()
 
     const logout = () =>{
@@ -23,6 +25,7 @@ export default function Navbar() {
                 <li><Link to="/callback">useCallback</Link></li>
                 <li><Link to="/hooks">Hooks</Link></li>
                 <li><Link to="/transition">Transition</Link></li>
+                <li>Carrito: {items.length} </li>
                 {
                     !logged?<>
                         <li><Link to="/login">Login</Link></li>
