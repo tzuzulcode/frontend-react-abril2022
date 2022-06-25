@@ -25,7 +25,6 @@ export default function Navbar() {
                 <li><Link to="/callback">useCallback</Link></li>
                 <li><Link to="/hooks">Hooks</Link></li>
                 <li><Link to="/transition">Transition</Link></li>
-                <li>Carrito: {items.length} </li>
                 {
                     !logged?<>
                         <li><Link to="/login">Login</Link></li>
@@ -34,6 +33,7 @@ export default function Navbar() {
                     <>
                         <li>{user.name}</li>
                         <li><button onClick={logout}>Log out</button></li>
+                        <li><Link to="/cart">Carrito: {items.length}</Link></li>
                     </>
                 }
                 

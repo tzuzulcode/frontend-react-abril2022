@@ -4,6 +4,8 @@ import { get } from './api';
 import ErrorBoundary from './components/ErrorBoundary';
 import Navbar from './components/Navbar';
 import { authContext } from './context/Auth';
+import { cartContext } from './context/Cart';
+import Cart from './pages/Cart';
 import Loading from './pages/Loading';
 import Transition from './pages/Transition';
 // import Callback from './pages/Callback';
@@ -19,15 +21,24 @@ const SignUp = lazy(()=>import('./pages/SignUp'))
 
 function App() {
     const {setUser} = useContext(authContext)
+    const {setItems} = useContext(cartContext)
 
     // Recuperamos sesión del usuario
     useEffect(()=>{
       get("/api/auth/validate")
       .then(result=>{
         setUser({type:'LOGIN',payload:result.user})
+        get("/api/cart")
+        .then(data=>{
+          setItems({
+            type:"UPDATE",
+            payload:data.items
+          })
+        })
+        .catch(console.log)
       })
       .catch(error=>console.log(error))
-    },[setUser])
+    },[setUser,setItems])
 
     return (
         <>
@@ -41,6 +52,7 @@ function App() {
                 <Route path='/transition' element={<Transition/>}/>
                 <Route path='/login' element={<Login/>}/>
                 <Route path='/signup' element={<SignUp/>}/>
+                <Route path='/cart' element={<Cart/>}/>
               </Routes>
             </Suspense>
           </ErrorBoundary>

@@ -23,11 +23,10 @@ export default function Home() {
       idProduct:id,
       amount:1
     }).then(data=>{
-      let items = data.items.map(item=>({amount:item.amount,...item._id}))
-      console.log(items)
+      console.log(data)
       setItems({
-        type:"ADD_PRODUCT",
-        payload:items
+        type:"UPDATE",
+        payload:data.items
       })
 
     })
