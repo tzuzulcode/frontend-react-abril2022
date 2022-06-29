@@ -6,6 +6,7 @@ import {FaFacebookSquare} from 'react-icons/fa'
 import {FcGoogle} from 'react-icons/fc'
 import { useNavigate } from 'react-router-dom'
 import useInput from '../hooks/useInput'
+import {baseURL} from '../config'
 
 export default function SignUp() {
 
@@ -44,8 +45,16 @@ export default function SignUp() {
 
     return (
         <>
-            <a className='flex items-center gap-3 bg-gray-200 w-max mx-auto p-3 my-10 shadow-md' href='https://backendnodejstzuzulcode.uw.r.appspot.com/api/auth/google'><FcGoogle/> Registrarme con Google</a>
-            <a className='flex items-center gap-3 bg-gray-200 w-max mx-auto p-3 my-10 shadow-md' href='https://backendnodejstzuzulcode.uw.r.appspot.com/api/auth/facebook'><FaFacebookSquare/> Registrarme con Facebook</a>
+            <a 
+                className='flex items-center gap-3 bg-gray-200 w-max mx-auto p-3 my-10 shadow-md' 
+                href={`${baseURL}/api/auth/google`}>
+                    <FcGoogle/> Iniciar sesión con Google
+            </a>
+            <a
+                className='flex items-center gap-3 bg-gray-200 w-max mx-auto p-3 my-10 shadow-md'
+                href={`${baseURL}/api/auth/facebook`}>
+                    <FaFacebookSquare/> Iniciar sesión con Facebook
+            </a>
             <form className='bg-gray-200 p-5 w-1/2 mx-auto flex flex-col gap-5 shadow-md' onSubmit={signup}>
                 <input className='p-2 shadow-md' type={type} value={value} onChange={onChange} placeholder='Name...'/>
                 <input className='p-2 shadow-md' placeholder='Email...' {...email} />

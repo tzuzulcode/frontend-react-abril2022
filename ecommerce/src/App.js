@@ -32,7 +32,7 @@ function App() {
         .then(data=>{
           setItems({
             type:"UPDATE",
-            payload:data.items
+            payload:data
           })
         })
         .catch(console.log)

@@ -7,9 +7,8 @@ export default function cartReducer(state,action){
 
     switch (action.type) {
         case 'UPDATE':
-            let items = action.payload.map(item=>({amount:item.amount,...item._id}))
             newState = {
-                items
+                items:action.payload
             }
             break;
         default:

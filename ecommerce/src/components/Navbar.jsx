@@ -33,6 +33,7 @@ export default function Navbar() {
                     <>
                         <li>{user.name}</li>
                         <li><button onClick={logout}>Log out</button></li>
+                        {console.log(items)}
                         <li><Link to="/cart">Carrito: {items.length}</Link></li>
                     </>
                 }

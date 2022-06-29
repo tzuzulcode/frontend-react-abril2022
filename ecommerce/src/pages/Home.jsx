@@ -23,10 +23,9 @@ export default function Home() {
       idProduct:id,
       amount:1
     }).then(data=>{
-      console.log(data)
       setItems({
         type:"UPDATE",
-        payload:data.items
+        payload:data
       })
 
     })
@@ -45,7 +44,7 @@ export default function Home() {
             <article className='bg-gray-200 shadow-sm' key={product._id}>
               <h3>{product.name}</h3>
               <p>{product.price}</p>
-              <img src={product.image[0]} alt={product.name} />
+              <img src={product.images[0]} alt={product.name} />
               <button onClick={()=>{
                 addToCart(product._id)
               }}>Add to cart</button>

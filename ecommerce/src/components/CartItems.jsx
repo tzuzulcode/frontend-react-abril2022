@@ -7,8 +7,9 @@ import { useState } from 'react';
 import PaymentForm from './PaymentForm';
 import { useEffect } from 'react';
 import { get } from '../api';
+import {stripePK} from "../config"
 
-const stripe = loadStripe("pk_test_51KTd1dCxJ8HWxsAUvHdkJU90wXuUHO4qa4bF5dq3A7kCPWLAiaPnQ4bDpvBqIVMHPdABDwVMODmDff6jl8ok59OJ00SeHORvaW")
+const stripe = loadStripe(stripePK)
 
 export default function CartItems() {
     const {items} = useContext(cartContext)
@@ -27,7 +28,7 @@ export default function CartItems() {
             <div className='w-3/4 mx-auto py-10'>
                 {items.map(item=>(
                     <article className='flex gap-5 mb-5 items-center'>
-                        <img className='w-10 h-10' src={item.image[0]} alt={item.name} />
+                        <img className='w-10 h-10' src={item.images[0]} alt={item.name} />
                         <h4 className='font-bold'>{item.name}</h4>
                         <p>{item.price}</p>
                         <p>{item.amount}</p>
