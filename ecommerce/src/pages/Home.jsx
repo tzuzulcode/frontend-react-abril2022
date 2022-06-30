@@ -11,7 +11,7 @@ export default function Home() {
   const {setItems} = useContext(cartContext)
   const [products,setProducts] = useState([])
   useEffect(()=>{
-    get("/api/products")
+    get("/api/products?page=2&limit=5")
     .then(({data})=>{
       setProducts(data)
     })

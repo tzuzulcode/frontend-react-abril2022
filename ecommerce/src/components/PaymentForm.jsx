@@ -4,11 +4,16 @@ import {
     useStripe,
     useElements
   } from "@stripe/react-stripe-js";
+import { useContext } from 'react';
+import { cartContext } from '../context/Cart';
+import {useNavigate} from 'react-router-dom'
 
 export default function PaymentForm() {
 
     const stripe = useStripe();
     const elements = useElements();
+    const {setItems} = useContext(cartContext)
+    const navigate = useNavigate()
 
     const pay = async (event)=>{
         event.preventDefault()
@@ -20,8 +25,10 @@ export default function PaymentForm() {
         console.log(result)
 
         if(result.paymentIntent.status==="succeeded"){
-            alert("Pago exitoso!!!")
-            // Limpiar el contexto del carrito
+            setItems({
+                type:"CLEAR"
+            })
+            navigate("/")
         }
     }
     return (

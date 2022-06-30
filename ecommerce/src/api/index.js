@@ -31,8 +31,35 @@ async function post(url,data){
     }
 }
 
+async function put(url,data){
+    try {
+        const result = await instance.put(url,data,{
+            withCredentials:true
+        })
+    
+        return result.data
+    } catch (error) {
+        throw error.response.data
+    }
+}
+
+async function del(url,data){
+    try {
+        const result = await instance.delete(url,{
+            data,
+            withCredentials:true
+        })
+    
+        return result.data
+    } catch (error) {
+        throw error.response.data
+    }
+}
+
 
 export {
     get,
-    post
+    post,
+    put,
+    del
 }

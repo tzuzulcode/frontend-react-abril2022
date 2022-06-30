@@ -11,6 +11,11 @@ export default function cartReducer(state,action){
                 items:action.payload
             }
             break;
+        case 'CLEAR':
+            newState = {
+                items:[]
+            }
+            break;
         default:
             newState = {
                 ...state
