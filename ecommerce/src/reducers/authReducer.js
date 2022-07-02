@@ -8,6 +8,7 @@ export default function authReducer(state,action){
 
     switch (action.type) {
         case 'LOGIN':
+            // state.logged = true //Mutacion en el objeto del estado
             newState = {
                 logged:true,
                 user: action.payload
