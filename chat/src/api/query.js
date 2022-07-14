@@ -1,4 +1,4 @@
-import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query'
+import {createApi,fetchBaseQuery} from '@reduxjs/toolkit/query/react'
 import { baseURL } from '../config'
 
 const api = createApi({
