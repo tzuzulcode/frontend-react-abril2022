@@ -1,7 +1,7 @@
 import {configureStore} from '@reduxjs/toolkit'
 import authReducer from '../features/auth'
 import { setupListeners } from '@reduxjs/toolkit/dist/query'
-import {pokemonApi as api} from '../api/query'
+import {api} from '../api/query'
 
 const store = configureStore({
     reducer:{
