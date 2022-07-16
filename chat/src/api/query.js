@@ -1,7 +1,9 @@
 import {createApi,fetchBaseQuery} from '@reduxjs/toolkit/query/react'
 import { baseURL } from '../config'
-import products from './products'
-import auth from './auth'
+// import products from './products'
+// import auth from './auth'
+import usersEndpoints from './users'
+import chatsEndpoints from './chats'
 
 export const api = createApi({
     reducerPath: 'api',
@@ -10,11 +12,7 @@ export const api = createApi({
       credentials:"include"
     }),
     endpoints:(builder)=>({
-        ...products(builder),
-        ...auth(builder)
+        ...usersEndpoints(builder),
+        ...chatsEndpoints(builder),
     })
 })
-
-
-// export default pokemonApi
-export const {useGetProductsQuery,useGetProductQuery} = api
